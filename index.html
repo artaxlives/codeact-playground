@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; style-src 'unsafe-inline'; worker-src blob:; connect-src 'none'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>CodeAct — A little code. Real action.</title>
+<style>
+:root{color-scheme:light;--paper:#f7f8fa;--ink:#202830;--muted:#6d7885;--line:#e2e6eb;--green:#247f62;--mint:#e7f2ec}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,textarea,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #5ca78d;outline-offset:3px}header{height:77px;border-bottom:1px solid var(--line);background:white;display:flex;align-items:center;justify-content:space-between;padding:0 32px}.brand{display:flex;gap:12px;align-items:center;font-size:22px;font-weight:750;letter-spacing:-.8px}.logo{background:#263d36;color:#c0e4ca;border-radius:9px;padding:6px 9px;font: bold 22px monospace}.brand small{font-size:10px;letter-spacing:1.3px;font-weight:600;border:1px solid var(--line);border-radius:4px;padding:5px 7px;margin-left:5px;color:var(--muted)}.top-note{color:var(--muted);font-size:12px}.dot{display:inline-block;width:7px;height:7px;background:#4c9b74;border-radius:50%;margin-right:7px}.layout{display:grid;grid-template-columns:282px minmax(0,1fr);max-width:1600px;margin:auto;min-height:calc(100vh - 77px)}aside{border-right:1px solid var(--line);background:#fff;padding:29px 16px}.eyebrow{text-transform:uppercase;letter-spacing:1.6px;font-size:10px;font-weight:750;color:var(--muted)}.side-heading{display:flex;justify-content:space-between;padding:0 12px 17px}.count{background:#f0f2f4;border-radius:4px;padding:2px 6px;letter-spacing:0}.search{width:100%;border:1px solid var(--line);border-radius:7px;background:#fafbfc;padding:10px 12px;margin-bottom:20px;color:var(--ink)}.task-item{width:100%;text-align:left;border:1px solid transparent;background:transparent;padding:11px 12px;margin-bottom:4px;border-radius:7px;display:flex;align-items:center;gap:11px;color:#4b5662}.task-item:hover{background:#f5f7f8}.task-item.active{background:var(--mint);border-color:#d6e7dd;color:#215e48}.task-icon{font-size:16px;width:22px;text-align:center;font-family:monospace}.task-title{font-size:12px;font-weight:600;display:block;line-height:1.5}.task-category{font-size:10px;color:var(--muted);display:block;margin-top:2px}.side-footer{margin:24px 12px 0;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:11px;line-height:1.7}main{padding:39px 48px 40px;max-width:1180px;width:100%;margin:auto}.intro{display:flex;justify-content:space-between;align-items:center}.intro .eyebrow{color:var(--green)}h1{font-size:32px;letter-spacing:-1.1px;margin:13px 0 11px;font-weight:650}.subtitle{font-size:14px;line-height:1.7;color:var(--muted);margin:0;max-width:660px}.intro-symbol{border:1px solid #dce6df;color:#7d9d8a;width:65px;height:65px;display:grid;place-items:center;border-radius:16px;transform:rotate(-5deg);font:26px monospace;background:#eef3ef}.disclosure{margin-top:24px;padding:13px 16px;background:#edf1f5;border:1px solid #e1e7ee;border-radius:7px;display:flex;gap:10px;font-size:11px;line-height:1.6;color:#667583}.disclosure strong{color:#425263}.workspace-head{margin:33px 0 23px;display:flex;justify-content:space-between;gap:15px;align-items:center}h2{font-size:21px;letter-spacing:-.5px;margin:8px 0}.task-description{font-size:12px;color:var(--muted);line-height:1.6;margin:0}.controls{display:flex;gap:8px;flex-shrink:0}.button{border:1px solid #d8dee3;border-radius:6px;padding:9px 13px;background:#fff;font-size:11px;color:#46525e;font-weight:600}.button.primary{background:#2d6e55;border-color:#2d6e55;color:white}.progress{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.7px;color:var(--muted);padding:0 0 12px}.turn{background:#fff;border:1px solid var(--line);border-radius:9px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 3px #24364903}.turn-heading{display:flex;gap:13px;align-items:flex-start;padding:19px 20px}.step-number{width:25px;height:25px;background:#edf3ef;color:#3f755b;border-radius:6px;display:grid;place-items:center;font:11px monospace;flex-shrink:0}.turn-heading h3{font-size:12px;margin:0 0 6px}.narration{font-size:12px;line-height:1.6;color:var(--muted);margin:0}.turn-state{margin-left:auto;white-space:nowrap;color:var(--muted);font:10px monospace;padding-top:6px}.code-block{margin:0 20px;border:1px solid #e1e6eb;border-radius:6px;overflow:hidden;background:#f8fafb}.code-toolbar{padding:9px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e6eaee;font:10px monospace;color:#7a8692}.language{color:#4e6571}.code-editor{width:100%;resize:vertical;display:block;background:#f8fafb;border:0;min-height:90px;padding:14px 15px;color:#31536c;font:12px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:2;outline-offset:-3px!important}.run-btn{background:#fff;border:1px solid #d9e1e5;border-radius:4px;padding:4px 9px;font:10px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#365846}.output-area{margin:15px 20px 20px}.output-label{font:9px monospace;letter-spacing:1px;color:#7b8a83;display:flex;justify-content:space-between}.turn-output{font:12px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0 0;color:#32634c;background:#f0f7f2;border-left:2px solid #94bca2;padding:11px 13px;max-height:260px;overflow:auto}.turn-output:empty{display:none}.turn-output.error{color:#a13e38;background:#fff2ef;border-color:#d78679}.runtime-note{font-size:10px;color:#8a949e;text-align:center;line-height:1.8;padding:5px}.empty-search{padding:20px 12px;color:var(--muted);font-size:12px}.noscript{padding:20px;color:#9d3730}@media(min-width:1300px){main{padding-left:65px;padding-right:65px}}@media(max-width:850px){.layout{grid-template-columns:220px 1fr}main{padding:28px 24px}.workspace-head{align-items:flex-start;flex-direction:column}.intro-symbol{display:none}.top-note{display:none}}@media(max-width:580px){header{padding:0 18px}.layout{display:block}aside{padding:18px;border-right:0;border-bottom:1px solid var(--line)}#task-list{max-height:190px;overflow:auto}.side-footer{display:none}.side-heading{padding-bottom:10px}.search{margin-bottom:10px}main{padding:26px 18px}h1{font-size:28px}.turn-heading{padding:15px}.code-block{margin:0 12px}.output-area{margin:14px 12px}.turn-state{font-size:9px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><span class="logo">&gt;_</span> CodeAct <small>PLAYGROUND</small></div><div class="top-note"><span class="dot"></span>Local execution. Real results.</div></header>
+<div class="layout"><aside><div class="side-heading eyebrow">The task library <span class="count">18</span></div><input class="search" id="search" aria-label="Search tasks" placeholder="Search tasks…"><nav id="task-list" aria-label="Example tasks"></nav><div class="side-footer">Small tasks. Visible thinking.<br>Pick a session to see code become action.<br><br>18 sessions · 6 categories · No API keys</div></aside>
+<main><div class="intro"><div><div class="eyebrow">Inside the agent’s loop</div><h1>A little code. Real action.</h1><p class="subtitle">Watch an agent turn everyday tasks into JavaScript.<br>Read the reasoning, run the code, and make it your own.</p></div><div class="intro-symbol">{ }</div></div>
+<div class="disclosure"><span>ⓘ</span><span><strong>Scripted decisions. Live execution.</strong> These sessions are hand-authored, not a live AI. Every code block runs for real in an isolated browser worker.</span></div>
+<div class="workspace-head"><div><div class="eyebrow" id="active-category">Everyday / 3 steps</div><h2 id="active-task-title">Split a dinner bill fairly</h2><p class="task-description" id="task-description">Divide dinner, add a tip, and settle up without the mental math.</p></div><div class="controls"><button class="button" id="pause-btn">Pause</button><button class="button primary" id="replay-btn">↻ Replay session</button></div></div>
+<div class="progress"><span id="session-status" role="status">PREPARING SESSION</span><span>JAVASCRIPT · EDITABLE</span></div><div id="turn-list"></div><noscript><p class="noscript">Enable JavaScript to run the sessions. CodeAct executes editable JavaScript locally in browser workers.</p></noscript><div class="runtime-note">Each run starts fresh. No network, DOM, or filesystem access.<br>Change any code block and press Run to follow a different path.</div></main></div>
+<script>
+'use strict';
+const turn=(title,narration,code)=>({title,narration,code});
+const sessions=[
+{title:'Split a dinner bill fairly',category:'Everyday',icon:'÷',description:'Divide dinner, add a tip, and settle up without the mental math.',turns:[
+turn('Start with what everyone ordered','I’ll total the shared dinner and check the numbers before adding a tip.',`const orders = { Maya: 24, Leo: 18.50, Sam: 31, Jo: 22.50 };
+const subtotal = Object.values(orders).reduce((a, b) => a + b, 0);
+console.log("4 friends · dinner subtotal");
+return "$" + subtotal.toFixed(2);`),
+turn('Add a little appreciation','A 20% tip brings the total to $115.20. Let’s calculate it, rather than guess.',`const subtotal = 24 + 18.50 + 31 + 22.50;
+const tip = subtotal * 0.20;
+console.log("Tip: $" + tip.toFixed(2));
+return { total: "$" + (subtotal + tip).toFixed(2) };`),
+turn('Settle up proportionally','Everyone pays for their own order plus their share of the tip. Try changing the tip rate.',`const orders = { Maya: 24, Leo: 18.50, Sam: 31, Jo: 22.50 };
+const tipRate = 0.20;
+return Object.fromEntries(Object.entries(orders).map(
+  ([name, amount]) => [name, "$" + (amount * (1 + tipRate)).toFixed(2)]
+));`)]},
+{title:'Find gaps in a busy calendar',category:'Everyday',icon:'◷',description:'Find the breathing room between meetings in a nine-to-five day.',turns:[turn('Sort the meetings','Minutes after midnight make time comparisons straightforward.',`const meetings = [[540,570],[630,690],[720,780],[840,900],[930,960]];
+return meetings.sort((a,b) => a[0]-b[0]);`),turn('Find useful free windows','Only keep gaps of at least 30 minutes, including the end of the day.',`const meetings = [[540,570],[630,690],[720,780],[840,900],[930,960]];
+const time = m => Math.floor(m/60)+":"+String(m%60).padStart(2,"0");
+let end = 540; const gaps = [];
+for (const [start,finish] of [...meetings,[1020,1020]]) {
+  if (start-end >= 30) gaps.push(time(end)+"–"+time(start));
+  end = Math.max(end,finish);
+}
+return gaps;`)]},
+{title:'Scale a pancake recipe',category:'Everyday',icon:'↗',description:'Breakfast for two becomes brunch for seven.',turns:[turn('Calculate the multiplier','Seven portions need 3.5 times the ingredients of two portions.',`return { originalServings: 2, guests: 7, multiplier: 7/2 };`),turn('Scale the ingredients','Keep units attached so the shopping list is useful.',`const recipe = [["flour",120,"g"],["milk",180,"ml"],["eggs",2,""],["butter",20,"g"]];
+return recipe.map(([name,amount,unit]) => name+": "+amount*3.5+" "+unit);`)]},
+{title:'Clean a messy contact list',category:'Data cleanup',icon:'≋',description:'Normalize spacing and casing, then remove duplicate email addresses.',turns:[turn('Normalize the addresses','Trim stray spaces and make casing consistent.',`const emails = [" MAYA@example.test ","leo@example.test","maya@EXAMPLE.test"," jo@example.test ","sam@example.test"];
+return emails.map(email => email.trim().toLowerCase());`),turn('Keep unique contacts','A Set removes duplicates after normalization.',`const emails = [" MAYA@example.test ","leo@example.test","maya@EXAMPLE.test"," jo@example.test ","sam@example.test"];
+const unique = [...new Set(emails.map(e=>e.trim().toLowerCase()))];
+console.log(emails.length-unique.length + " duplicate removed");
+return unique;`)]},
+{title:'Turn CSV into useful data',category:'Data cleanup',icon:'▤',description:'Parse a simple unquoted CSV and summarize inventory value.',turns:[turn('Read the rows','This small CSV contains plain fields with no embedded commas.',`const csv = "item,quantity,price\\nNotebook,12,4.5\\nPencil,30,0.8\\nFolder,8,2.25";
+const [header,...rows] = csv.split("\\n");
+return rows.map(row => Object.fromEntries(row.split(",").map((v,i)=>[header.split(",")[i],v])));`),turn('Calculate stock value','Convert the numeric fields before doing arithmetic.',`const stock = [{item:"Notebook",quantity:12,price:4.5},{item:"Pencil",quantity:30,price:0.8},{item:"Folder",quantity:8,price:2.25}];
+return { units: stock.reduce((n,p)=>n+p.quantity,0), value: "$"+stock.reduce((n,p)=>n+p.quantity*p.price,0).toFixed(2) };`)]},
+{title:'Spot duplicate expenses',category:'Data cleanup',icon:'⊜',description:'Flag matching merchant, date, and amount without deleting anything.',turns:[turn('Inspect the expense ledger','Two identical charges deserve a closer look.',`return [{id:1,date:"2026-09-21",merchant:"Rail",amount:18},{id:2,date:"2026-09-21",merchant:"Rail",amount:18},{id:3,date:"2026-09-22",merchant:"Rail",amount:18},{id:4,date:"2026-09-21",merchant:"Cafe",amount:6}];`),turn('Flag exact matches','The same amount on another date is not an exact duplicate.',`const expenses = [[1,"09-21","Rail",18],[2,"09-21","Rail",18],[3,"09-22","Rail",18],[4,"09-21","Cafe",6]];
+const seen = new Set();
+return expenses.filter(([id,...fields])=>{const key=JSON.stringify(fields); if(seen.has(key)) return true; seen.add(key); return false;}).map(row=>({reviewId:row[0],reason:"Matching date, merchant, amount"}));`)]},
+{title:'Where did the budget go?',category:'Money',icon:'$',description:'Group 20 purchases into categories and find the biggest spend.',turns:[turn('Group the purchases','Total each category across the month.',`const expenses = Array.from({length:20},(_,i)=>({category:["Food","Travel","Home","Fun"][i%4],amount:[12,28,45,9,18,32,16][i%7]}));
+return expenses.reduce((totals,e)=>{totals[e.category]=(totals[e.category]||0)+e.amount;return totals;},{});`),turn('Rank the spending','Sort category totals from largest to smallest.',`const expenses = Array.from({length:20},(_,i)=>({category:["Food","Travel","Home","Fun"][i%4],amount:[12,28,45,9,18,32,16][i%7]}));
+const totals = expenses.reduce((a,e)=>{a[e.category]=(a[e.category]||0)+e.amount;return a;},{});
+return Object.entries(totals).sort((a,b)=>b[1]-a[1]).map(([category,total])=>category+": $"+total);`)]},
+{title:'Compare subscription costs',category:'Money',icon:'⇄',description:'Make monthly and annual prices comparable.',turns:[turn('Annualize each plan','Use one year as the common comparison period.',`const plans = [{name:"Monthly",price:12,months:1},{name:"Quarterly",price:32,months:3},{name:"Annual",price:110,months:12}];
+return plans.map(p=>({plan:p.name,yearly:p.price*12/p.months}));`),turn('Measure annual savings','Compare the annual plan with twelve monthly payments.',`const monthly = 12, annual = 110;
+return { savedPerYear: "$"+(monthly*12-annual), savings: ((1-annual/(monthly*12))*100).toFixed(1)+"%" };`)]},
+{title:'Reach a savings goal',category:'Money',icon:'◎',description:'Estimate when regular monthly deposits reach a target, without interest.',turns:[turn('Work out what remains','Subtract the amount already saved.',`return { goal: 2400, saved: 650, remaining: 2400-650 };`),turn('Build a savings timeline','Include the final partial deposit so the target is exact.',`let balance=650; const timeline=[];
+for(let month=1;balance<2400;month++) {
+  const deposit=Math.min(250,2400-balance); balance+=deposit;
+  timeline.push({month,deposit,balance});
+}
+return timeline;`)]},
+{title:'Find the words that repeat',category:'Text',icon:'Aa',description:'Count repeated words in a short project update.',turns:[turn('Tokenize the update','Ignore punctuation and capitalization.',`const text="Small steps make progress. Small experiments make learning. Learning makes better experiments.";
+return text.toLowerCase().match(/[a-z]+/g);`),turn('Rank recurring words','Keep only words that appear more than once.',`const text="Small steps make progress. Small experiments make learning. Learning makes better experiments.";
+const counts={}; for(const word of text.toLowerCase().match(/[a-z]+/g)) counts[word]=(counts[word]||0)+1;
+return Object.entries(counts).filter(([,n])=>n>1).sort((a,b)=>b[1]-a[1]);`)]},
+{title:'Make tidy URL slugs',category:'Text',icon:'#',description:'Turn human titles into predictable, readable URL segments.',turns:[turn('Normalize accented text','Decompose accents and strip combining marks.',`return ["Café notes", "A week in Zürich", "Hello, World!"].map(s=>s.normalize("NFD").replace(/[\\u0300-\\u036f]/g,""));`),turn('Create the slugs','Lowercase, replace punctuation with dashes, and trim the ends.',`const titles=["Café notes", "A week in Zürich", "Hello, World!", "  Less   is more  "];
+return titles.map(s=>s.normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));`)]},
+{title:'Estimate a reading time',category:'Text',icon:'¶',description:'Compare reading times for a collection of draft articles.',turns:[turn('Choose a reading pace','At 220 words per minute, round up to whole minutes.',`const words=1380, wordsPerMinute=220;
+return { words, minutes: Math.ceil(words/wordsPerMinute) };`),turn('Label each draft','Short notes still get a one-minute minimum.',`const drafts=[{title:"A quick note",words:85},{title:"The field guide",words:1380},{title:"A deeper look",words:3200},{title:"Weekly recap",words:660}];
+return drafts.map(d=>({title:d.title,readingTime:Math.max(1,Math.ceil(d.words/220))+" min"}));`)]},
+{title:'Explore a week of weather',category:'Analysis',icon:'☀',description:'Calculate a temperature average and pick the warmest day from offline data.',turns:[turn('Read the week','Seven sample daily highs, measured in Celsius.',`return [{day:"Mon",high:19},{day:"Tue",high:22},{day:"Wed",high:21},{day:"Thu",high:25},{day:"Fri",high:18},{day:"Sat",high:24},{day:"Sun",high:23}];`),turn('Summarize the forecast','Find the mean and maximum using the sample data.',`const days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], highs=[19,22,21,25,18,24,23];
+return {average: (highs.reduce((a,b)=>a+b,0)/highs.length).toFixed(1)+" °C",warmest:days[highs.indexOf(Math.max(...highs))],daysAbove20:highs.filter(t=>t>20).length};`)]},
+{title:'Spot an unusual sales day',category:'Analysis',icon:'⌁',description:'Find a spike in three weeks of daily sales using a simple threshold.',turns:[turn('Find the typical day','A median is less affected by one unusually large value.',`const sales=[42,38,45,40,51,48,37,43,44,39,46,180,41,49,47,44,42,50,38,45,43];
+return { days:sales.length, median:[...sales].sort((a,b)=>a-b)[Math.floor(sales.length/2)] };`),turn('Flag values above twice the median','This is a transparent heuristic, not a statistical diagnosis.',`const sales=[42,38,45,40,51,48,37,43,44,39,46,180,41,49,47,44,42,50,38,45,43];
+const median=[...sales].sort((a,b)=>a-b)[10];
+return sales.map((value,i)=>({day:i+1,value})).filter(d=>d.value>median*2);`)]},
+{title:'Measure a habit streak',category:'Analysis',icon:'▥',description:'See the longest and current streak over 21 days of practice.',turns:[turn('Count the practice days','One means a completed day; zero is a missed day.',`const days=[1,1,0,1,1,1,1,0,1,0,1,1,1,1,1,1,0,1,1,1,1];
+return { completed:days.reduce((a,b)=>a+b,0),total:days.length };`),turn('Find the streaks','Reset the current streak when a day is missed.',`const days=[1,1,0,1,1,1,1,0,1,0,1,1,1,1,1,1,0,1,1,1,1];
+let current=0,longest=0;
+for(const done of days){current=done?current+1:0;longest=Math.max(longest,current);}
+return {longest:longest+" days",current:current+" days"};`)]},
+{title:'Catch a broken calculation',category:'Debugging',icon:'!',description:'Watch a real exception surface, then fix the invalid input.',turns:[turn('Make the failure visible','An empty list has no average. I’ll throw an explicit error instead of returning NaN.',`const values=[];
+if (!values.length) throw new Error("Cannot average an empty list. Add at least one number.");
+return values.reduce((a,b)=>a+b,0)/values.length;`),turn('Try again with valid data','The same validation now lets the calculation proceed.',`const values=[12,18,24,30];
+if (!values.length) throw new Error("Cannot average an empty list.");
+return values.reduce((a,b)=>a+b,0)/values.length;`)]},
+{title:'Validate a signup batch',category:'Debugging',icon:'✓',description:'Check plausible email formats and flag missing names in local sample data.',turns:[turn('Inspect the batch','Include valid rows, a malformed address, and an empty name.',`return [{name:"Maya",email:"maya@example.test"},{name:"Leo",email:"leo.example.test"},{name:"",email:"jo@example.test"},{name:"Sam",email:"sam@example.test"}];`),turn('Report row-level problems','This simple format check does not verify email deliverability.',`const rows=[{name:"Maya",email:"maya@example.test"},{name:"Leo",email:"leo.example.test"},{name:"",email:"jo@example.test"},{name:"Sam",email:"sam@example.test"}];
+return rows.map((r,i)=>({row:i+1,issues:[...(!r.name.trim()?["Name required"]:[]),...(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(r.email)?["Invalid email format"]:[])]}));`)]},
+{title:'Fix a sorting surprise',category:'Debugging',icon:'↕',description:'Discover why the default JavaScript sort can put 100 before 20.',turns:[turn('Reproduce the surprise','Default sorting compares strings, even when the inputs are numbers.',`const numbers=[3,20,100,7,42,11];
+return numbers.sort();`),turn('Use a numeric comparator','Subtract the values to put them in numerical order.',`const numbers=[3,20,100,7,42,11];
+return numbers.sort((a,b)=>a-b);`)]}
+];
+const workerSource = `
+'use strict';
+const send = self.postMessage.bind(self);
+for (const name of ['fetch','XMLHttpRequest','WebSocket','WebTransport','EventSource','importScripts','Worker','SharedWorker','indexedDB','caches','navigator','BroadcastChannel']) {
+  Object.defineProperty(self,name,{value:undefined,writable:false,configurable:false});
+}
+const format = value => {
+  if (typeof value === 'string') return value;
+  if (typeof value === 'undefined') return 'undefined';
+  if (typeof value === 'bigint') return value.toString()+'n';
+  try { const result=JSON.stringify(value,null,2); return result === undefined ? String(value) : result; }
+  catch(error) { return '[Unserializable value: '+error.message+']'; }
+};
+self.onmessage = async event => {
+  const logs=[];
+  const capture = (...args) => { if(logs.length<100) logs.push(args.map(format).join(' ')); };
+  const localConsole=Object.freeze({log:capture,info:capture,warn:(...a)=>capture('Warning:',...a),error:(...a)=>capture('Error:',...a),debug:capture,table:capture,clear:()=>{logs.length=0;},assert:(v,...a)=>{if(!v)capture('Assertion failed:',...a);}});
+  Object.defineProperty(self,'console',{value:localConsole,writable:false,configurable:false});
+  try {
+    const AsyncFunction=Object.getPrototypeOf(async function(){}).constructor;
+    const value=await new AsyncFunction('console','"use strict";\\n'+event.data.code)(localConsole);
+    send({kind:'result',text:[...logs,'↳ '+format(value)].join('\\n'),error:false});
+  } catch(error) {
+    send({kind:'result',text:[...logs,String(error && error.name || 'Error')+': '+String(error && error.message || error)].join('\\n'),error:true});
+  }
+};`;
+let selected=0, generation=0, paused=false, autoplayTimer=null;
+const activeRuns=new Set();
+const taskList=document.getElementById('task-list');
+const turnList=document.getElementById('turn-list');
+const status=document.getElementById('session-status');
+const pauseButton=document.getElementById('pause-btn');
+function renderTasks(){
+ const query=document.getElementById('search').value.toLowerCase(); taskList.replaceChildren();
+ sessions.forEach((session,index)=>{
+  if(!(session.title+' '+session.category).toLowerCase().includes(query)) return;
+  const button=document.createElement('button');button.className='task-item'+(index===selected?' active':'');button.setAttribute('aria-pressed',String(index===selected));
+  const icon=document.createElement('span');icon.className='task-icon';icon.textContent=session.icon;icon.setAttribute('aria-hidden','true');
+  const labels=document.createElement('span');const title=document.createElement('span');title.className='task-title';title.textContent=session.title;
+  const category=document.createElement('span');category.className='task-category';category.textContent=session.category+' · '+session.turns.length+' steps';labels.append(title,category);button.append(icon,labels);
+  button.addEventListener('click',()=>selectSession(index));taskList.append(button);
+ });
+ if(!taskList.children.length){const empty=document.createElement('p');empty.className='empty-search';empty.textContent='No matching tasks. Try “money” or “text”.';taskList.append(empty);}
+}
+function stopRuns(){for(const cancel of [...activeRuns]) cancel();}
+function runTurn(card){
+ if(card.cancelRun) card.cancelRun();
+ const output=card.querySelector('.turn-output'),state=card.querySelector('.turn-state');
+ output.classList.remove('error');output.textContent='Running in a fresh worker…';state.textContent='RUNNING';card.dataset.done='false';
+ const start=performance.now();
+ return new Promise(resolve=>{
+  let worker,url,timer,finished=false;
+  const finish=(text,error,cancelled=false)=>{
+   if(finished)return;finished=true;clearTimeout(timer);if(worker)worker.terminate();if(url)URL.revokeObjectURL(url);activeRuns.delete(cancel);card.cancelRun=null;
+   if(!cancelled){output.textContent=text;output.classList.toggle('error',error);state.textContent=error?'ERROR':'COMPLETE';card.dataset.done='true';card.querySelector('.timing').textContent=Math.round(performance.now()-start)+' ms';updateProgress();}
+   resolve();
+  };
+  const cancel=()=>finish('',false,true);card.cancelRun=cancel;activeRuns.add(cancel);
+  try {
+   url=URL.createObjectURL(new Blob([workerSource],{type:'text/javascript'}));worker=new Worker(url);window.__codeact_worker_created=true;
+   worker.onmessage=event=>{if(event.data && event.data.kind==='result')finish(String(event.data.text),Boolean(event.data.error));};
+   worker.onerror=event=>{event.preventDefault();finish('Error: '+event.message,true);};
+   timer=setTimeout(()=>finish('Error: Execution exceeded the 2-second limit. Check for an infinite loop.',true),2000);
+   worker.postMessage({code:card.querySelector('.code-editor').value});
+  }catch(error){finish('Error: Unable to start the execution worker. '+error.message,true);}
+ });
+}
+function updateProgress(){const cards=[...turnList.children];const done=cards.filter(c=>c.dataset.done==='true').length;status.textContent=done+' / '+cards.length+' STEPS EXECUTED'+(paused?' · PAUSED':done===cards.length?' · SESSION COMPLETE':'');}
+async function autoplay(token,index=0){
+ if(token!==generation||paused)return;
+ const card=turnList.children[index];if(!card){updateProgress();return;}
+ await runTurn(card);
+ if(token!==generation||paused)return;
+ autoplayTimer=setTimeout(()=>autoplay(token,index+1),650);
+}
+function selectSession(index){
+ generation++;clearTimeout(autoplayTimer);stopRuns();selected=index;paused=false;pauseButton.textContent='Pause';
+ const session=sessions[index];document.getElementById('active-task-title').textContent=session.title;document.getElementById('active-category').textContent=session.category+' / '+session.turns.length+' steps';document.getElementById('task-description').textContent=session.description;
+ renderTasks();turnList.replaceChildren();
+ session.turns.forEach((step,i)=>{
+  const card=document.createElement('article');card.className='turn';card.dataset.done='false';
+  card.innerHTML='<div class="turn-heading"><span class="step-number"></span><div><h3></h3><p class="narration"></p></div><span class="turn-state">QUEUED</span></div><div class="code-block"><div class="code-toolbar"><span class="language">JS &nbsp; javascript</span><button class="run-btn">▷ Run</button></div><textarea class="code-editor" spellcheck="false"></textarea></div><div class="output-area"><div class="output-label"><span>↳ OUTPUT</span><span class="timing">Ready to execute</span></div><pre class="turn-output" aria-live="polite"></pre></div>';
+  card.querySelector('.step-number').textContent=String(i+1).padStart(2,'0');card.querySelector('h3').textContent=step.title;card.querySelector('.narration').textContent=step.narration;
+  const editor=card.querySelector('.code-editor');editor.value=step.code;editor.rows=Math.min(10,step.code.split('\n').length+1);editor.setAttribute('aria-label','JavaScript for step '+(i+1)+': '+step.title);
+  card.querySelector('.run-btn').setAttribute('aria-label','Run step '+(i+1));
+  card.querySelector('.run-btn').addEventListener('click',()=>{pausePlayback();runTurn(card);});
+  editor.addEventListener('input',()=>{pausePlayback();if(card.cancelRun)card.cancelRun();card.dataset.done='false';card.querySelector('.turn-state').textContent='EDITED';card.querySelector('.timing').textContent='Run to update';updateProgress();});
+  turnList.append(card);
+ });
+ updateProgress();autoplayTimer=setTimeout(()=>autoplay(generation),120);
+}
+function pausePlayback(){paused=true;generation++;clearTimeout(autoplayTimer);pauseButton.textContent='Resume';updateProgress();}
+pauseButton.addEventListener('click',()=>{if(!paused)pausePlayback();else{paused=false;pauseButton.textContent='Pause';const index=[...turnList.children].findIndex(c=>c.dataset.done!=='true');updateProgress();if(index>=0)autoplay(++generation,index);}});
+document.getElementById('replay-btn').addEventListener('click',()=>selectSession(selected));
+document.getElementById('search').addEventListener('input',renderTasks);
+window.addEventListener('pagehide',()=>{clearTimeout(autoplayTimer);stopRuns();});
+selectSession(0);
+</script>
+</body>
+</html>
